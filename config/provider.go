@@ -25,8 +25,8 @@ import (
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-template"
+	resourcePrefix = "cloudflare"
+	modulePath     = "github.com/crossplane-contrib/provider-jet-cloudflare"
 )
 
 //go:embed schema.json
