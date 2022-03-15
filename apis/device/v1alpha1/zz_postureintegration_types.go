@@ -23,60 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type ConfigObservation struct {
-
-}
-
-
-type ConfigParameters struct {
-
-
-// +kubebuilder:validation:Optional
-APIURL *string `json:"apiUrl,omitempty" tf:"api_url,omitempty"`
-
-// +kubebuilder:validation:Optional
-AuthURL *string `json:"authUrl,omitempty" tf:"auth_url,omitempty"`
-
-// +kubebuilder:validation:Optional
-ClientID *string `json:"clientId,omitempty" tf:"client_id,omitempty"`
-
-// +kubebuilder:validation:Optional
-ClientSecretSecretRef *v1.SecretKeySelector `json:"clientSecretSecretRef,omitempty" tf:"-"`
-}
-
-
-type PostureIntegrationObservation struct {
-
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type PostureIntegrationParameters struct {
-
-
-// +kubebuilder:validation:Required
-AccountID *string `json:"accountId" tf:"account_id,omitempty"`
-
-// +kubebuilder:validation:Optional
-Config []ConfigParameters `json:"config,omitempty" tf:"config,omitempty"`
-
-// +kubebuilder:validation:Optional
-Identifier *string `json:"identifier,omitempty" tf:"identifier,omitempty"`
-
-// +kubebuilder:validation:Optional
-Interval *string `json:"interval,omitempty" tf:"interval,omitempty"`
-
-// +kubebuilder:validation:Required
-Type *string `json:"type" tf:"type,omitempty"`
-=======
 )
 
 type ConfigObservation struct {
@@ -117,27 +63,18 @@ type PostureIntegrationParameters struct {
 
 	// +kubebuilder:validation:Required
 	Type *string `json:"type" tf:"type,omitempty"`
->>>>>>> 205d351
 }
 
 // PostureIntegrationSpec defines the desired state of PostureIntegration
 type PostureIntegrationSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       PostureIntegrationParameters `json:"forProvider"`
-=======
 	ForProvider     PostureIntegrationParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // PostureIntegrationStatus defines the observed state of PostureIntegration.
 type PostureIntegrationStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          PostureIntegrationObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        PostureIntegrationObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

@@ -23,37 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type RuleObservation struct {
-
-
-GroupID *string `json:"groupId,omitempty" tf:"group_id,omitempty"`
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type RuleParameters struct {
-
-
-// +kubebuilder:validation:Required
-Mode *string `json:"mode" tf:"mode,omitempty"`
-
-// +kubebuilder:validation:Optional
-PackageID *string `json:"packageId,omitempty" tf:"package_id,omitempty"`
-
-// +kubebuilder:validation:Required
-RuleID *string `json:"ruleId" tf:"rule_id,omitempty"`
-
-// +kubebuilder:validation:Required
-ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
-=======
 )
 
 type RuleObservation struct {
@@ -75,27 +44,18 @@ type RuleParameters struct {
 
 	// +kubebuilder:validation:Required
 	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
->>>>>>> 205d351
 }
 
 // RuleSpec defines the desired state of Rule
 type RuleSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       RuleParameters `json:"forProvider"`
-=======
 	ForProvider     RuleParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // RuleStatus defines the observed state of Rule.
 type RuleStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          RuleObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        RuleObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

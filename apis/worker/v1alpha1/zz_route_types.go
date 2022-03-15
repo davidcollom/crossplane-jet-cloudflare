@@ -23,41 +23,8 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-
 )
 
-<<<<<<<< HEAD:apis/account/v1alpha1/zz_member_types.go
-
-
-
-type MemberObservation struct {
-
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type MemberParameters struct {
-
-
-// +kubebuilder:validation:Required
-EmailAddress *string `json:"emailAddress" tf:"email_address,omitempty"`
-
-// +kubebuilder:validation:Required
-RoleIds []*string `json:"roleIds" tf:"role_ids,omitempty"`
-}
-
-// MemberSpec defines the desired state of Member
-type MemberSpec struct {
-	v1.ResourceSpec `json:",inline"`
-	ForProvider       MemberParameters `json:"forProvider"`
-}
-
-// MemberStatus defines the observed state of Member.
-type MemberStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider          MemberObservation `json:"atProvider,omitempty"`
-========
 type RouteObservation struct {
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 }
@@ -84,66 +51,35 @@ type RouteSpec struct {
 type RouteStatus struct {
 	v1.ResourceStatus `json:",inline"`
 	AtProvider        RouteObservation `json:"atProvider,omitempty"`
->>>>>>>> 205d351:apis/worker/v1alpha1/zz_route_types.go
 }
 
 // +kubebuilder:object:root=true
 
-<<<<<<<< HEAD:apis/account/v1alpha1/zz_member_types.go
-// Member is the Schema for the Members API
-========
 // Route is the Schema for the Routes API
->>>>>>>> 205d351:apis/worker/v1alpha1/zz_route_types.go
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,cloudflarejet}
-<<<<<<<< HEAD:apis/account/v1alpha1/zz_member_types.go
-type Member struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              MemberSpec   `json:"spec"`
-	Status            MemberStatus `json:"status,omitempty"`
-========
 type Route struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	Spec              RouteSpec   `json:"spec"`
 	Status            RouteStatus `json:"status,omitempty"`
->>>>>>>> 205d351:apis/worker/v1alpha1/zz_route_types.go
 }
 
 // +kubebuilder:object:root=true
 
-<<<<<<<< HEAD:apis/account/v1alpha1/zz_member_types.go
-// MemberList contains a list of Members
-type MemberList struct {
-	metav1.TypeMeta `json:",inline"`
-	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Member `json:"items"`
-========
 // RouteList contains a list of Routes
 type RouteList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []Route `json:"items"`
->>>>>>>> 205d351:apis/worker/v1alpha1/zz_route_types.go
 }
 
 // Repository type metadata.
 var (
-<<<<<<<< HEAD:apis/account/v1alpha1/zz_member_types.go
-	Member_Kind             = "Member"
-	Member_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Member_Kind}.String()
-	Member_KindAPIVersion   = Member_Kind + "." + CRDGroupVersion.String()
-	Member_GroupVersionKind = CRDGroupVersion.WithKind(Member_Kind)
-)
-
-func init() {
-	SchemeBuilder.Register(&Member{}, &MemberList{})
-========
 	Route_Kind             = "Route"
 	Route_GroupKind        = schema.GroupKind{Group: CRDGroup, Kind: Route_Kind}.String()
 	Route_KindAPIVersion   = Route_Kind + "." + CRDGroupVersion.String()
@@ -152,5 +88,4 @@ func init() {
 
 func init() {
 	SchemeBuilder.Register(&Route{}, &RouteList{})
->>>>>>>> 205d351:apis/worker/v1alpha1/zz_route_types.go
 }

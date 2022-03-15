@@ -23,32 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type KvObservation struct {
-
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type KvParameters struct {
-
-
-// +kubebuilder:validation:Required
-Key *string `json:"key" tf:"key,omitempty"`
-
-// +kubebuilder:validation:Required
-NamespaceID *string `json:"namespaceId" tf:"namespace_id,omitempty"`
-
-// +kubebuilder:validation:Required
-Value *string `json:"value" tf:"value,omitempty"`
-=======
 )
 
 type KvObservation struct {
@@ -65,27 +39,18 @@ type KvParameters struct {
 
 	// +kubebuilder:validation:Required
 	Value *string `json:"value" tf:"value,omitempty"`
->>>>>>> 205d351
 }
 
 // KvSpec defines the desired state of Kv
 type KvSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       KvParameters `json:"forProvider"`
-=======
 	ForProvider     KvParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // KvStatus defines the observed state of Kv.
 type KvStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          KvObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        KvObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

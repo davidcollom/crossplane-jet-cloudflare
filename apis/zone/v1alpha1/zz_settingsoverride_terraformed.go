@@ -23,10 +23,6 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/resource"
 	"github.com/crossplane/terrajet/pkg/resource/json"
-<<<<<<< HEAD
-	
-=======
->>>>>>> 205d351
 )
 
 // GetTerraformResourceType returns Terraform resource type for this SettingsOverride
@@ -36,11 +32,7 @@ func (mg *SettingsOverride) GetTerraformResourceType() string {
 
 // GetConnectionDetailsMapping for this SettingsOverride
 func (tr *SettingsOverride) GetConnectionDetailsMapping() map[string]string {
-<<<<<<< HEAD
-  return nil
-=======
 	return nil
->>>>>>> 205d351
 }
 
 // GetObservation of this SettingsOverride
@@ -64,17 +56,10 @@ func (tr *SettingsOverride) SetObservation(obs map[string]interface{}) error {
 
 // GetID returns ID of underlying Terraform resource of this SettingsOverride
 func (tr *SettingsOverride) GetID() string {
-<<<<<<< HEAD
-    if tr.Status.AtProvider.ID == nil {
-        return ""
-    }
-    return *tr.Status.AtProvider.ID
-=======
 	if tr.Status.AtProvider.ID == nil {
 		return ""
 	}
 	return *tr.Status.AtProvider.ID
->>>>>>> 205d351
 }
 
 // GetParameters of this SettingsOverride
@@ -104,10 +89,6 @@ func (tr *SettingsOverride) LateInitialize(attrs []byte) (bool, error) {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
 	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 205d351
 
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
@@ -115,9 +96,5 @@ func (tr *SettingsOverride) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *SettingsOverride) GetTerraformSchemaVersion() int {
-<<<<<<< HEAD
-    return 0
-=======
 	return 0
->>>>>>> 205d351
 }

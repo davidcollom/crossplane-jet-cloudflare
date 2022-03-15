@@ -23,49 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type DNSSECObservation struct {
-
-
-Algorithm *string `json:"algorithm,omitempty" tf:"algorithm,omitempty"`
-
-Digest *string `json:"digest,omitempty" tf:"digest,omitempty"`
-
-DigestAlgorithm *string `json:"digestAlgorithm,omitempty" tf:"digest_algorithm,omitempty"`
-
-DigestType *string `json:"digestType,omitempty" tf:"digest_type,omitempty"`
-
-Ds *string `json:"ds,omitempty" tf:"ds,omitempty"`
-
-Flags *float64 `json:"flags,omitempty" tf:"flags,omitempty"`
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-
-KeyTag *float64 `json:"keyTag,omitempty" tf:"key_tag,omitempty"`
-
-KeyType *string `json:"keyType,omitempty" tf:"key_type,omitempty"`
-
-PublicKey *string `json:"publicKey,omitempty" tf:"public_key,omitempty"`
-
-Status *string `json:"status,omitempty" tf:"status,omitempty"`
-}
-
-
-type DNSSECParameters struct {
-
-
-// +kubebuilder:validation:Optional
-ModifiedOn *string `json:"modifiedOn,omitempty" tf:"modified_on,omitempty"`
-
-// +kubebuilder:validation:Required
-ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
-=======
 )
 
 type DNSSECObservation struct {
@@ -99,27 +56,18 @@ type DNSSECParameters struct {
 
 	// +kubebuilder:validation:Required
 	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
->>>>>>> 205d351
 }
 
 // DNSSECSpec defines the desired state of DNSSEC
 type DNSSECSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       DNSSECParameters `json:"forProvider"`
-=======
 	ForProvider     DNSSECParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // DNSSECStatus defines the observed state of DNSSEC.
 type DNSSECStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          DNSSECObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        DNSSECObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

@@ -23,39 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type CACertificateObservation struct {
-
-
-Certificate *string `json:"certificate,omitempty" tf:"certificate,omitempty"`
-
-ExpiresOn *string `json:"expiresOn,omitempty" tf:"expires_on,omitempty"`
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type CACertificateParameters struct {
-
-
-// +kubebuilder:validation:Optional
-Csr *string `json:"csr,omitempty" tf:"csr,omitempty"`
-
-// +kubebuilder:validation:Required
-Hostnames []*string `json:"hostnames" tf:"hostnames,omitempty"`
-
-// +kubebuilder:validation:Required
-RequestType *string `json:"requestType" tf:"request_type,omitempty"`
-
-// +kubebuilder:validation:Optional
-RequestedValidity *float64 `json:"requestedValidity,omitempty" tf:"requested_validity,omitempty"`
-=======
 )
 
 type CACertificateObservation struct {
@@ -79,27 +46,18 @@ type CACertificateParameters struct {
 
 	// +kubebuilder:validation:Optional
 	RequestedValidity *float64 `json:"requestedValidity,omitempty" tf:"requested_validity,omitempty"`
->>>>>>> 205d351
 }
 
 // CACertificateSpec defines the desired state of CACertificate
 type CACertificateSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       CACertificateParameters `json:"forProvider"`
-=======
 	ForProvider     CACertificateParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // CACertificateStatus defines the observed state of CACertificate.
 type CACertificateStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          CACertificateObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        CACertificateObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

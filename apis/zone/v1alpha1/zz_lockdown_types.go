@@ -23,57 +23,6 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
-<<<<<<< HEAD
-
-)
-
-
-
-
-type ConfigurationsObservation struct {
-
-}
-
-
-type ConfigurationsParameters struct {
-
-
-// +kubebuilder:validation:Required
-Target *string `json:"target" tf:"target,omitempty"`
-
-// +kubebuilder:validation:Required
-Value *string `json:"value" tf:"value,omitempty"`
-}
-
-
-type LockdownObservation struct {
-
-
-ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-
-type LockdownParameters struct {
-
-
-// +kubebuilder:validation:Required
-Configurations []ConfigurationsParameters `json:"configurations" tf:"configurations,omitempty"`
-
-// +kubebuilder:validation:Optional
-Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
-// +kubebuilder:validation:Optional
-Paused *bool `json:"paused,omitempty" tf:"paused,omitempty"`
-
-// +kubebuilder:validation:Optional
-Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
-
-// +kubebuilder:validation:Required
-Urls []*string `json:"urls" tf:"urls,omitempty"`
-
-// +kubebuilder:validation:Required
-ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
-=======
 )
 
 type ConfigurationsObservation struct {
@@ -111,27 +60,18 @@ type LockdownParameters struct {
 
 	// +kubebuilder:validation:Required
 	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
->>>>>>> 205d351
 }
 
 // LockdownSpec defines the desired state of Lockdown
 type LockdownSpec struct {
 	v1.ResourceSpec `json:",inline"`
-<<<<<<< HEAD
-	ForProvider       LockdownParameters `json:"forProvider"`
-=======
 	ForProvider     LockdownParameters `json:"forProvider"`
->>>>>>> 205d351
 }
 
 // LockdownStatus defines the observed state of Lockdown.
 type LockdownStatus struct {
 	v1.ResourceStatus `json:",inline"`
-<<<<<<< HEAD
-	AtProvider          LockdownObservation `json:"atProvider,omitempty"`
-=======
 	AtProvider        LockdownObservation `json:"atProvider,omitempty"`
->>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

@@ -30,10 +30,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	v1alpha1 "github.com/crossplane-contrib/provider-jet-cloudflare/apis/device/v1alpha1"
-<<<<<<< HEAD
-
-=======
->>>>>>> 205d351
 )
 
 // Setup adds a controller that reconciles PostureIntegration managed resources.
@@ -43,22 +39,13 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	initializers = append(initializers, managed.NewNameAsExternalName(mgr.GetClient()))
 	r := managed.NewReconciler(mgr,
 		xpresource.ManagedKind(v1alpha1.PostureIntegration_GroupVersionKind),
-<<<<<<< HEAD
-		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), o.WorkspaceStore, o.SetupFn, o.Provider.Resources["cloudflare_device_posture_integration"],
-		)),
-=======
 		managed.WithExternalConnecter(tjcontroller.NewConnector(mgr.GetClient(), o.WorkspaceStore, o.SetupFn, o.Provider.Resources["cloudflare_device_posture_integration"])),
->>>>>>> 205d351
 		managed.WithLogger(o.Logger.WithValues("controller", name)),
 		managed.WithRecorder(event.NewAPIRecorder(mgr.GetEventRecorderFor(name))),
 		managed.WithFinalizer(terraform.NewWorkspaceFinalizer(o.WorkspaceStore, xpresource.NewAPIFinalizer(mgr.GetClient(), managed.FinalizerName))),
 		managed.WithTimeout(3*time.Minute),
 		managed.WithInitializers(initializers),
-<<<<<<< HEAD
-		)
-=======
 	)
->>>>>>> 205d351
 
 	return ctrl.NewControllerManagedBy(mgr).
 		Named(name).
