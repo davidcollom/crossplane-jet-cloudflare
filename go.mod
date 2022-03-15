@@ -1,4 +1,4 @@
-module github.com/crossplane-contrib/provider-jet-template
+module github.com/davidcollom/crossplane-jet-cloudflare
 
 go 1.17
 

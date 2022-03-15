@@ -25,9 +25,25 @@ import (
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-template"
+	resourcePrefix = "cloudflare"
+	modulePath     = "github.com/crossplane-contrib/provider-jet-cloudflare"
 )
+
+var skipList = []string{
+	"cloudflare_waf_package$",
+	"cloudflare_notification_policy$",
+	"cloudflare_rate_limit$",
+	"cloudflare_magic_firewall_ruleset$",
+}
+var includeList = []string{
+	// 	"cloudflare_custom",
+	// 	"cloudflare_zone",
+	// 	"cloudflare_record",
+	// 	"cloudflare_argo",
+	// 	"cloudflare_waf",
+	// 	"cloudflare_workers",
+	// 	"cloudflare_teams",
+}
 
 //go:embed schema.json
 var providerSchema string
@@ -36,13 +52,17 @@ var providerSchema string
 func GetProvider() *tjconfig.Provider {
 	defaultResourceFn := func(name string, terraformResource *schema.Resource, opts ...tjconfig.ResourceOption) *tjconfig.Resource {
 		r := tjconfig.DefaultResource(name, terraformResource)
+
 		// Add any provider-specific defaulting here. For example:
 		//   r.ExternalName = tjconfig.IdentifierFromProvider
 		return r
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn),
+		tjconfig.WithIncludeList(includeList),
+		tjconfig.WithSkipList(skipList),
+	)
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
