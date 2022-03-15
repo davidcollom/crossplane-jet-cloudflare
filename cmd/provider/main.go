@@ -33,10 +33,10 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/davidcollom/provider-jet-cloudflare/apis"
-	"github.com/davidcollom/provider-jet-cloudflare/config"
-	"github.com/davidcollom/provider-jet-cloudflare/internal/clients"
-	"github.com/davidcollom/provider-jet-cloudflare/internal/controller"
+	"github.com/davidcollom/crossplane-jet-cloudflare/apis"
+	"github.com/davidcollom/crossplane-jet-cloudflare/config"
+	"github.com/davidcollom/crossplane-jet-cloudflare/internal/clients"
+	"github.com/davidcollom/crossplane-jet-cloudflare/internal/controller"
 )
 
 func main() {

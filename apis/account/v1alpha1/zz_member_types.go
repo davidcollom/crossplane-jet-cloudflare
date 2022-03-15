@@ -52,25 +52,18 @@ type MemberStatus struct {
 
 // +kubebuilder:object:root=true
 
+// Member is the Schema for the Members API
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,cloudflarejet}
-
 type Member struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	Spec              MemberSpec   `json:"spec"`
 	Status            MemberStatus `json:"status,omitempty"`
-}
-
-type Route struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              RouteSpec   `json:"spec"`
-	Status            RouteStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -82,13 +75,6 @@ type MemberList struct {
 	Items           []Member `json:"items"`
 }
 
-// RouteList contains a list of Routes
-type RouteList struct {
-	metav1.TypeMeta `json:",inline"`
-	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Route `json:"items"`
-}
-
 // Repository type metadata.
 var (
 	Member_Kind             = "Member"
@@ -96,3 +82,7 @@ var (
 	Member_KindAPIVersion   = Member_Kind + "." + CRDGroupVersion.String()
 	Member_GroupVersionKind = CRDGroupVersion.WithKind(Member_Kind)
 )
+
+func init() {
+	SchemeBuilder.Register(&Member{}, &MemberList{})
+}

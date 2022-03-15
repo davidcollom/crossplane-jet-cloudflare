@@ -22,13 +22,73 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-cloudflare/apis/v1alpha1"
+	v1alpha1 "github.com/davidcollom/crossplane-jet-cloudflare/apis/access/v1alpha1"
+	v1alpha1account "github.com/davidcollom/crossplane-jet-cloudflare/apis/account/v1alpha1"
+	v1alpha1api "github.com/davidcollom/crossplane-jet-cloudflare/apis/api/v1alpha1"
+	v1alpha1argo "github.com/davidcollom/crossplane-jet-cloudflare/apis/argo/v1alpha1"
+	v1alpha1authenticated "github.com/davidcollom/crossplane-jet-cloudflare/apis/authenticated/v1alpha1"
+	v1alpha1byo "github.com/davidcollom/crossplane-jet-cloudflare/apis/byo/v1alpha1"
+	v1alpha1certificate "github.com/davidcollom/crossplane-jet-cloudflare/apis/certificate/v1alpha1"
+	v1alpha1cloudflare "github.com/davidcollom/crossplane-jet-cloudflare/apis/cloudflare/v1alpha1"
+	v1alpha1custom "github.com/davidcollom/crossplane-jet-cloudflare/apis/custom/v1alpha1"
+	v1alpha1device "github.com/davidcollom/crossplane-jet-cloudflare/apis/device/v1alpha1"
+	v1alpha1fallback "github.com/davidcollom/crossplane-jet-cloudflare/apis/fallback/v1alpha1"
+	v1alpha1firewall "github.com/davidcollom/crossplane-jet-cloudflare/apis/firewall/v1alpha1"
+	v1alpha1gre "github.com/davidcollom/crossplane-jet-cloudflare/apis/gre/v1alpha1"
+	v1alpha1ip "github.com/davidcollom/crossplane-jet-cloudflare/apis/ip/v1alpha1"
+	v1alpha1ipsec "github.com/davidcollom/crossplane-jet-cloudflare/apis/ipsec/v1alpha1"
+	v1alpha1load "github.com/davidcollom/crossplane-jet-cloudflare/apis/load/v1alpha1"
+	v1alpha1logpull "github.com/davidcollom/crossplane-jet-cloudflare/apis/logpull/v1alpha1"
+	v1alpha1logpush "github.com/davidcollom/crossplane-jet-cloudflare/apis/logpush/v1alpha1"
+	v1alpha1notification "github.com/davidcollom/crossplane-jet-cloudflare/apis/notification/v1alpha1"
+	v1alpha1origin "github.com/davidcollom/crossplane-jet-cloudflare/apis/origin/v1alpha1"
+	v1alpha1page "github.com/davidcollom/crossplane-jet-cloudflare/apis/page/v1alpha1"
+	v1alpha1spectrum "github.com/davidcollom/crossplane-jet-cloudflare/apis/spectrum/v1alpha1"
+	v1alpha1split "github.com/davidcollom/crossplane-jet-cloudflare/apis/split/v1alpha1"
+	v1alpha1static "github.com/davidcollom/crossplane-jet-cloudflare/apis/static/v1alpha1"
+	v1alpha1teams "github.com/davidcollom/crossplane-jet-cloudflare/apis/teams/v1alpha1"
+	v1alpha1apis "github.com/davidcollom/crossplane-jet-cloudflare/apis/v1alpha1"
+	v1alpha1waf "github.com/davidcollom/crossplane-jet-cloudflare/apis/waf/v1alpha1"
+	v1alpha1waiting "github.com/davidcollom/crossplane-jet-cloudflare/apis/waiting/v1alpha1"
+	v1alpha1worker "github.com/davidcollom/crossplane-jet-cloudflare/apis/worker/v1alpha1"
+	v1alpha1workers "github.com/davidcollom/crossplane-jet-cloudflare/apis/workers/v1alpha1"
+	v1alpha1zone "github.com/davidcollom/crossplane-jet-cloudflare/apis/zone/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1account.SchemeBuilder.AddToScheme,
+		v1alpha1api.SchemeBuilder.AddToScheme,
+		v1alpha1argo.SchemeBuilder.AddToScheme,
+		v1alpha1authenticated.SchemeBuilder.AddToScheme,
+		v1alpha1byo.SchemeBuilder.AddToScheme,
+		v1alpha1certificate.SchemeBuilder.AddToScheme,
+		v1alpha1cloudflare.SchemeBuilder.AddToScheme,
+		v1alpha1custom.SchemeBuilder.AddToScheme,
+		v1alpha1device.SchemeBuilder.AddToScheme,
+		v1alpha1fallback.SchemeBuilder.AddToScheme,
+		v1alpha1firewall.SchemeBuilder.AddToScheme,
+		v1alpha1gre.SchemeBuilder.AddToScheme,
+		v1alpha1ip.SchemeBuilder.AddToScheme,
+		v1alpha1ipsec.SchemeBuilder.AddToScheme,
+		v1alpha1load.SchemeBuilder.AddToScheme,
+		v1alpha1logpull.SchemeBuilder.AddToScheme,
+		v1alpha1logpush.SchemeBuilder.AddToScheme,
+		v1alpha1notification.SchemeBuilder.AddToScheme,
+		v1alpha1origin.SchemeBuilder.AddToScheme,
+		v1alpha1page.SchemeBuilder.AddToScheme,
+		v1alpha1spectrum.SchemeBuilder.AddToScheme,
+		v1alpha1split.SchemeBuilder.AddToScheme,
+		v1alpha1static.SchemeBuilder.AddToScheme,
+		v1alpha1teams.SchemeBuilder.AddToScheme,
+		v1alpha1apis.SchemeBuilder.AddToScheme,
+		v1alpha1waf.SchemeBuilder.AddToScheme,
+		v1alpha1waiting.SchemeBuilder.AddToScheme,
+		v1alpha1worker.SchemeBuilder.AddToScheme,
+		v1alpha1workers.SchemeBuilder.AddToScheme,
+		v1alpha1zone.SchemeBuilder.AddToScheme,
 	)
 }
 

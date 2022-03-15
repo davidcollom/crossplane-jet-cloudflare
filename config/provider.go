@@ -26,7 +26,7 @@ import (
 
 const (
 	resourcePrefix = "cloudflare"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-cloudflare"
+	modulePath     = "github.com/davidcollom/crossplane-jet-cloudflare"
 )
 
 var skipList = []string{
@@ -60,7 +60,7 @@ func GetProvider() *tjconfig.Provider {
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
 		tjconfig.WithDefaultResourceFn(defaultResourceFn),
-		tjconfig.WithIncludeList(includeList),
+		// tjconfig.WithIncludeList(includeList),
 		tjconfig.WithSkipList(skipList),
 	)
 
