@@ -2,8 +2,8 @@
 
 `provider-jet-cloudflare` is a [Crossplane](https://crossplane.io/) provider that
 is built using [Terrajet](https://github.com/crossplane/terrajet) code
-generation tools and exposes XRM-conformant managed resources for the 
-CloudFlare API.
+generation tools and exposes XRM-conformant managed resources for the
+Cloudflare API.
 
 ## Getting Started
 

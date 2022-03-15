@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -44,18 +45,41 @@ Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type PolicyCertificatesObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type PolicyCertificatesParameters struct {
+
+	// +kubebuilder:validation:Required
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // PolicyCertificatesSpec defines the desired state of PolicyCertificates
 type PolicyCertificatesSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       PolicyCertificatesParameters `json:"forProvider"`
+=======
+	ForProvider     PolicyCertificatesParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // PolicyCertificatesStatus defines the observed state of PolicyCertificates.
 type PolicyCertificatesStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          PolicyCertificatesObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        PolicyCertificatesObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

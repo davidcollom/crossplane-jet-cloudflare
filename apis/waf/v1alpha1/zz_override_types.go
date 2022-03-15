@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -64,18 +65,61 @@ Urls []*string `json:"urls" tf:"urls,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type OverrideObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	OverrideID *string `json:"overrideId,omitempty" tf:"override_id,omitempty"`
+}
+
+type OverrideParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Groups map[string]*string `json:"groups,omitempty" tf:"groups,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Paused *bool `json:"paused,omitempty" tf:"paused,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	RewriteAction map[string]*string `json:"rewriteAction,omitempty" tf:"rewrite_action,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Rules map[string]*string `json:"rules,omitempty" tf:"rules,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Urls []*string `json:"urls" tf:"urls,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // OverrideSpec defines the desired state of Override
 type OverrideSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       OverrideParameters `json:"forProvider"`
+=======
+	ForProvider     OverrideParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // OverrideStatus defines the observed state of Override.
 type OverrideStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          OverrideObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        OverrideObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

@@ -44,7 +44,11 @@ type ProviderConfigStatus struct {
 
 // +kubebuilder:object:root=true
 
+<<<<<<< HEAD
 // A ProviderConfig configures a CloudFlare JET provider.
+=======
+// A ProviderConfig configures a Cloudflare JET provider.
+>>>>>>> 205d351
 // +kubebuilder:subresource:status
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
 // +kubebuilder:printcolumn:name="SECRET-NAME",type="string",JSONPath=".spec.credentials.secretRef.name",priority=1

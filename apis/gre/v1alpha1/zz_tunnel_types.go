@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -68,18 +69,65 @@ Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
 
 // +kubebuilder:validation:Optional
 TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
+=======
+)
+
+type TunnelObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type TunnelParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
+
+	// +kubebuilder:validation:Required
+	CloudflareGreEndpoint *string `json:"cloudflareGreEndpoint" tf:"cloudflare_gre_endpoint,omitempty"`
+
+	// +kubebuilder:validation:Required
+	CustomerGreEndpoint *string `json:"customerGreEndpoint" tf:"customer_gre_endpoint,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HealthCheckEnabled *bool `json:"healthCheckEnabled,omitempty" tf:"health_check_enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HealthCheckTarget *string `json:"healthCheckTarget,omitempty" tf:"health_check_target,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HealthCheckType *string `json:"healthCheckType,omitempty" tf:"health_check_type,omitempty"`
+
+	// +kubebuilder:validation:Required
+	InterfaceAddress *string `json:"interfaceAddress" tf:"interface_address,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Mtu *float64 `json:"mtu,omitempty" tf:"mtu,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
+>>>>>>> 205d351
 }
 
 // TunnelSpec defines the desired state of Tunnel
 type TunnelSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       TunnelParameters `json:"forProvider"`
+=======
+	ForProvider     TunnelParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // TunnelStatus defines the observed state of Tunnel.
 type TunnelStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          TunnelObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        TunnelObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

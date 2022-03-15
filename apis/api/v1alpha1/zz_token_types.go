@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -98,18 +99,83 @@ Condition []ConditionParameters `json:"condition,omitempty" tf:"condition,omitem
 
 // +kubebuilder:validation:Required
 Policy []PolicyParameters `json:"policy" tf:"policy,omitempty"`
+=======
+)
+
+type ConditionObservation struct {
+}
+
+type ConditionParameters struct {
+
+	// +kubebuilder:validation:Optional
+	RequestIP []RequestIPParameters `json:"requestIp,omitempty" tf:"request_ip,omitempty"`
+}
+
+type PolicyObservation struct {
+}
+
+type PolicyParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Effect *string `json:"effect,omitempty" tf:"effect,omitempty"`
+
+	// +kubebuilder:validation:Required
+	PermissionGroups []*string `json:"permissionGroups" tf:"permission_groups,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Resources map[string]*string `json:"resources" tf:"resources,omitempty"`
+}
+
+type RequestIPObservation struct {
+}
+
+type RequestIPParameters struct {
+
+	// +kubebuilder:validation:Optional
+	In []*string `json:"in,omitempty" tf:"in,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	NotIn []*string `json:"notIn,omitempty" tf:"not_in,omitempty"`
+}
+
+type TokenObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	IssuedOn *string `json:"issuedOn,omitempty" tf:"issued_on,omitempty"`
+
+	ModifiedOn *string `json:"modifiedOn,omitempty" tf:"modified_on,omitempty"`
+
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+}
+
+type TokenParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Condition []ConditionParameters `json:"condition,omitempty" tf:"condition,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Policy []PolicyParameters `json:"policy" tf:"policy,omitempty"`
+>>>>>>> 205d351
 }
 
 // TokenSpec defines the desired state of Token
 type TokenSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       TokenParameters `json:"forProvider"`
+=======
+	ForProvider     TokenParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // TokenStatus defines the observed state of Token.
 type TokenStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          TokenObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        TokenObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

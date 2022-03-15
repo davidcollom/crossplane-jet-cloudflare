@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -50,18 +51,47 @@ Sensitivity *string `json:"sensitivity,omitempty" tf:"sensitivity,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type PackageObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type PackageParameters struct {
+
+	// +kubebuilder:validation:Optional
+	ActionMode *string `json:"actionMode,omitempty" tf:"action_mode,omitempty"`
+
+	// +kubebuilder:validation:Required
+	PackageID *string `json:"packageId" tf:"package_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Sensitivity *string `json:"sensitivity,omitempty" tf:"sensitivity,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // PackageSpec defines the desired state of Package
 type PackageSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       PackageParameters `json:"forProvider"`
+=======
+	ForProvider     PackageParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // PackageStatus defines the observed state of Package.
 type PackageStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          PackageObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        PackageObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

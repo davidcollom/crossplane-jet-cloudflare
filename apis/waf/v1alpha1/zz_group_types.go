@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -50,18 +51,47 @@ PackageID *string `json:"packageId,omitempty" tf:"package_id,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type GroupObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type GroupParameters struct {
+
+	// +kubebuilder:validation:Required
+	GroupID *string `json:"groupId" tf:"group_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	PackageID *string `json:"packageId,omitempty" tf:"package_id,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // GroupSpec defines the desired state of Group
 type GroupSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       GroupParameters `json:"forProvider"`
+=======
+	ForProvider     GroupParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // GroupStatus defines the observed state of Group.
 type GroupStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          GroupObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        GroupObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

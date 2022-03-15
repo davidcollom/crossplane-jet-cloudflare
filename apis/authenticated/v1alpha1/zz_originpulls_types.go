@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -50,18 +51,47 @@ Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type OriginPullsObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type OriginPullsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AuthenticatedOriginPullsCertificate *string `json:"authenticatedOriginPullsCertificate,omitempty" tf:"authenticated_origin_pulls_certificate,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // OriginPullsSpec defines the desired state of OriginPulls
 type OriginPullsSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       OriginPullsParameters `json:"forProvider"`
+=======
+	ForProvider     OriginPullsParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // OriginPullsStatus defines the observed state of OriginPulls.
 type OriginPullsStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          OriginPullsObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        OriginPullsObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

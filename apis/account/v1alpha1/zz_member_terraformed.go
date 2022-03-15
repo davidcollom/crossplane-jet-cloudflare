@@ -23,7 +23,6 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/resource"
 	"github.com/crossplane/terrajet/pkg/resource/json"
-	
 )
 
 // GetTerraformResourceType returns Terraform resource type for this Member
@@ -33,7 +32,7 @@ func (mg *Member) GetTerraformResourceType() string {
 
 // GetConnectionDetailsMapping for this Member
 func (tr *Member) GetConnectionDetailsMapping() map[string]string {
-  return nil
+	return nil
 }
 
 // GetObservation of this Member
@@ -57,10 +56,10 @@ func (tr *Member) SetObservation(obs map[string]interface{}) error {
 
 // GetID returns ID of underlying Terraform resource of this Member
 func (tr *Member) GetID() string {
-    if tr.Status.AtProvider.ID == nil {
-        return ""
-    }
-    return *tr.Status.AtProvider.ID
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
 }
 
 // GetParameters of this Member
@@ -90,7 +89,6 @@ func (tr *Member) LateInitialize(attrs []byte) (bool, error) {
 		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
 	}
 	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
-	
 
 	li := resource.NewGenericLateInitializer(opts...)
 	return li.LateInitialize(&tr.Spec.ForProvider, params)
@@ -98,5 +96,5 @@ func (tr *Member) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *Member) GetTerraformSchemaVersion() int {
-    return 0
+	return 0
 }

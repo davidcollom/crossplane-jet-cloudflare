@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -108,18 +109,96 @@ TxtName *string `json:"txtName,omitempty" tf:"txt_name,omitempty"`
 
 // +kubebuilder:validation:Optional
 TxtValue *string `json:"txtValue,omitempty" tf:"txt_value,omitempty"`
+=======
+)
+
+type PackObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type PackParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CertificateAuthority *string `json:"certificateAuthority,omitempty" tf:"certificate_authority,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CloudflareBranding *bool `json:"cloudflareBranding,omitempty" tf:"cloudflare_branding,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Hosts []*string `json:"hosts" tf:"hosts,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Type *string `json:"type" tf:"type,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ValidationErrors []ValidationErrorsParameters `json:"validationErrors,omitempty" tf:"validation_errors,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ValidationMethod *string `json:"validationMethod,omitempty" tf:"validation_method,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ValidationRecords []ValidationRecordsParameters `json:"validationRecords,omitempty" tf:"validation_records,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ValidityDays *float64 `json:"validityDays,omitempty" tf:"validity_days,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+}
+
+type ValidationErrorsObservation struct {
+	Message *string `json:"message,omitempty" tf:"message,omitempty"`
+}
+
+type ValidationErrorsParameters struct {
+}
+
+type ValidationRecordsObservation struct {
+}
+
+type ValidationRecordsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	CnameName *string `json:"cnameName,omitempty" tf:"cname_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	CnameTarget *string `json:"cnameTarget,omitempty" tf:"cname_target,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Emails []*string `json:"emails,omitempty" tf:"emails,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HTTPBody *string `json:"httpBody,omitempty" tf:"http_body,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	HTTPURL *string `json:"httpUrl,omitempty" tf:"http_url,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TxtName *string `json:"txtName,omitempty" tf:"txt_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	TxtValue *string `json:"txtValue,omitempty" tf:"txt_value,omitempty"`
+>>>>>>> 205d351
 }
 
 // PackSpec defines the desired state of Pack
 type PackSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       PackParameters `json:"forProvider"`
+=======
+	ForProvider     PackParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // PackStatus defines the observed state of Pack.
 type PackStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          PackObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        PackObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

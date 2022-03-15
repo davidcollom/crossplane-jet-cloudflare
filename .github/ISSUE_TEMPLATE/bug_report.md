@@ -1,10 +1,18 @@
 ---
 name: Bug Report
+<<<<<<< HEAD
 about: Help us diagnose and fix bugs in CloudFlare Provider.
 labels: bug
 ---
 <!--
 Thank you for helping to improve CloudFlare Provider!
+=======
+about: Help us diagnose and fix bugs in Cloudflare Provider.
+labels: bug
+---
+<!--
+Thank you for helping to improve Cloudflare Provider!
+>>>>>>> 205d351
 
 Please be sure to search for open issues before raising a new one. We use issues
 for bug reports and feature requests. Please find us at https://slack.crossplane.io
@@ -13,7 +21,11 @@ for questions, support, and discussion.
 
 ### What happened?
 <!--
+<<<<<<< HEAD
 Please let us know what behaviour you expected and how CloudFlare Provider diverged from
+=======
+Please let us know what behaviour you expected and how Cloudflare Provider diverged from
+>>>>>>> 205d351
 that behaviour.
 -->
 

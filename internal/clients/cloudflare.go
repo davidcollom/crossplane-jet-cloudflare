@@ -35,7 +35,11 @@ const (
 	keyPassword = "password"
 	keyHost     = "host"
 
+<<<<<<< HEAD
 	// CloudFlare credentials environment variable names
+=======
+	// Cloudflare credentials environment variable names
+>>>>>>> 205d351
 	envUsername = "HASHICUPS_USERNAME"
 	envPassword = "HASHICUPS_PASSWORD"
 )

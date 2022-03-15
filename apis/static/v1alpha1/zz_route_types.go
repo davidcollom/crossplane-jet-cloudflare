@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -62,18 +63,59 @@ Priority *float64 `json:"priority" tf:"priority,omitempty"`
 
 // +kubebuilder:validation:Optional
 Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
+=======
+)
+
+type RouteObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type RouteParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AccountID *string `json:"accountId,omitempty" tf:"account_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ColoNames []*string `json:"coloNames,omitempty" tf:"colo_names,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	ColoRegions []*string `json:"coloRegions,omitempty" tf:"colo_regions,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Nexthop *string `json:"nexthop" tf:"nexthop,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Prefix *string `json:"prefix" tf:"prefix,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Priority *float64 `json:"priority" tf:"priority,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
+>>>>>>> 205d351
 }
 
 // RouteSpec defines the desired state of Route
 type RouteSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       RouteParameters `json:"forProvider"`
+=======
+	ForProvider     RouteParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // RouteStatus defines the observed state of Route.
 type RouteStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          RouteObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        RouteObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

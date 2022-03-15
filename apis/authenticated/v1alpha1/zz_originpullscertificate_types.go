@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -62,18 +63,59 @@ Type *string `json:"type" tf:"type,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type OriginPullsCertificateObservation struct {
+	ExpiresOn *string `json:"expiresOn,omitempty" tf:"expires_on,omitempty"`
+
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	Issuer *string `json:"issuer,omitempty" tf:"issuer,omitempty"`
+
+	SerialNumber *string `json:"serialNumber,omitempty" tf:"serial_number,omitempty"`
+
+	Signature *string `json:"signature,omitempty" tf:"signature,omitempty"`
+
+	Status *string `json:"status,omitempty" tf:"status,omitempty"`
+
+	UploadedOn *string `json:"uploadedOn,omitempty" tf:"uploaded_on,omitempty"`
+}
+
+type OriginPullsCertificateParameters struct {
+
+	// +kubebuilder:validation:Required
+	Certificate *string `json:"certificate" tf:"certificate,omitempty"`
+
+	// +kubebuilder:validation:Required
+	PrivateKeySecretRef v1.SecretKeySelector `json:"privateKeySecretRef" tf:"-"`
+
+	// +kubebuilder:validation:Required
+	Type *string `json:"type" tf:"type,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // OriginPullsCertificateSpec defines the desired state of OriginPullsCertificate
 type OriginPullsCertificateSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       OriginPullsCertificateParameters `json:"forProvider"`
+=======
+	ForProvider     OriginPullsCertificateParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // OriginPullsCertificateStatus defines the observed state of OriginPullsCertificate.
 type OriginPullsCertificateStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          OriginPullsCertificateObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        OriginPullsCertificateObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

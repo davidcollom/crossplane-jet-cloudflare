@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -131,18 +132,120 @@ Schedule *string `json:"schedule,omitempty" tf:"schedule,omitempty"`
 
 // +kubebuilder:validation:Required
 Type *string `json:"type" tf:"type,omitempty"`
+=======
+)
+
+type InputObservation struct {
+}
+
+type InputParameters struct {
+
+	// The workspace one device compliance status.
+	// +kubebuilder:validation:Optional
+	ComplianceStatus *string `json:"complianceStatus,omitempty" tf:"compliance_status,omitempty"`
+
+	// The workspace one connection id.
+	// +kubebuilder:validation:Optional
+	ConnectionID *string `json:"connectionId,omitempty" tf:"connection_id,omitempty"`
+
+	// The domain that the client must join.
+	// +kubebuilder:validation:Optional
+	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
+
+	// True if the firewall must be enabled.
+	// +kubebuilder:validation:Optional
+	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
+
+	// Checks if the file should exist.
+	// +kubebuilder:validation:Optional
+	Exists *bool `json:"exists,omitempty" tf:"exists,omitempty"`
+
+	// The Teams List id.
+	// +kubebuilder:validation:Optional
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	// The version comparison operator.
+	// +kubebuilder:validation:Optional
+	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
+
+	// The path to the file.
+	// +kubebuilder:validation:Optional
+	Path *string `json:"path,omitempty" tf:"path,omitempty"`
+
+	// True if all drives must be encrypted.
+	// +kubebuilder:validation:Optional
+	RequireAll *bool `json:"requireAll,omitempty" tf:"require_all,omitempty"`
+
+	// Checks if the application should be running
+	// +kubebuilder:validation:Optional
+	Running *bool `json:"running,omitempty" tf:"running,omitempty"`
+
+	// The sha256 hash of the file.
+	// +kubebuilder:validation:Optional
+	Sha256 *string `json:"sha256,omitempty" tf:"sha256,omitempty"`
+
+	// The thumbprint of the file certificate.
+	// +kubebuilder:validation:Optional
+	Thumbprint *string `json:"thumbprint,omitempty" tf:"thumbprint,omitempty"`
+
+	// The operating system semantic version.
+	// +kubebuilder:validation:Optional
+	Version *string `json:"version,omitempty" tf:"version,omitempty"`
+}
+
+type MatchObservation struct {
+}
+
+type MatchParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Platform *string `json:"platform,omitempty" tf:"platform,omitempty"`
+}
+
+type PostureRuleObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type PostureRuleParameters struct {
+
+	// +kubebuilder:validation:Required
+	AccountID *string `json:"accountId" tf:"account_id,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Input []InputParameters `json:"input,omitempty" tf:"input,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Match []MatchParameters `json:"match,omitempty" tf:"match,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Schedule *string `json:"schedule,omitempty" tf:"schedule,omitempty"`
+
+	// +kubebuilder:validation:Required
+	Type *string `json:"type" tf:"type,omitempty"`
+>>>>>>> 205d351
 }
 
 // PostureRuleSpec defines the desired state of PostureRule
 type PostureRuleSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       PostureRuleParameters `json:"forProvider"`
+=======
+	ForProvider     PostureRuleParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // PostureRuleStatus defines the observed state of PostureRule.
 type PostureRuleStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          PostureRuleObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        PostureRuleObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

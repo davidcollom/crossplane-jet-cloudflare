@@ -23,6 +23,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
+<<<<<<< HEAD
 
 )
 
@@ -74,18 +75,71 @@ Webp []*string `json:"webp,omitempty" tf:"webp,omitempty"`
 
 // +kubebuilder:validation:Required
 ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+=======
+)
+
+type CacheVariantsObservation struct {
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type CacheVariantsParameters struct {
+
+	// +kubebuilder:validation:Optional
+	Avif []*string `json:"avif,omitempty" tf:"avif,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Bmp []*string `json:"bmp,omitempty" tf:"bmp,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Gif []*string `json:"gif,omitempty" tf:"gif,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Jp2 []*string `json:"jp2,omitempty" tf:"jp2,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Jpeg []*string `json:"jpeg,omitempty" tf:"jpeg,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Jpg []*string `json:"jpg,omitempty" tf:"jpg,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Jpg2 []*string `json:"jpg2,omitempty" tf:"jpg2,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Png []*string `json:"png,omitempty" tf:"png,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Tif []*string `json:"tif,omitempty" tf:"tif,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Tiff []*string `json:"tiff,omitempty" tf:"tiff,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Webp []*string `json:"webp,omitempty" tf:"webp,omitempty"`
+
+	// +kubebuilder:validation:Required
+	ZoneID *string `json:"zoneId" tf:"zone_id,omitempty"`
+>>>>>>> 205d351
 }
 
 // CacheVariantsSpec defines the desired state of CacheVariants
 type CacheVariantsSpec struct {
 	v1.ResourceSpec `json:",inline"`
+<<<<<<< HEAD
 	ForProvider       CacheVariantsParameters `json:"forProvider"`
+=======
+	ForProvider     CacheVariantsParameters `json:"forProvider"`
+>>>>>>> 205d351
 }
 
 // CacheVariantsStatus defines the observed state of CacheVariants.
 type CacheVariantsStatus struct {
 	v1.ResourceStatus `json:",inline"`
+<<<<<<< HEAD
 	AtProvider          CacheVariantsObservation `json:"atProvider,omitempty"`
+=======
+	AtProvider        CacheVariantsObservation `json:"atProvider,omitempty"`
+>>>>>>> 205d351
 }
 
 // +kubebuilder:object:root=true

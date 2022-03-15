@@ -1,7 +1,7 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-jet-cloudflare
+PROJECT_NAME := crossplane-jet-cloudflare
 PROJECT_REPO := github.com/davidcollom/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.7
@@ -9,7 +9,7 @@ export TERRAFORM_VERSION := 1.1.7
 export TERRAFORM_PROVIDER_SOURCE := cloudflare/cloudflare
 export TERRAFORM_PROVIDER_VERSION := 3.10.0
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-cloudflare
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-cloudflare/3.1.0
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-cloudflare/3.10.0
 
 PLATFORMS ?= linux_amd64 linux_arm64
 
