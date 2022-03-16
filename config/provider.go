@@ -29,20 +29,12 @@ const (
 	modulePath     = "github.com/davidcollom/crossplane-jet-cloudflare"
 )
 
+// A List of resources that aren't supported right now..
 var skipList = []string{
 	"cloudflare_waf_package$",
 	"cloudflare_notification_policy$",
 	"cloudflare_rate_limit$",
 	"cloudflare_magic_firewall_ruleset$",
-}
-var includeList = []string{
-	// 	"cloudflare_custom",
-	// 	"cloudflare_zone",
-	// 	"cloudflare_record",
-	// 	"cloudflare_argo",
-	// 	"cloudflare_waf",
-	// 	"cloudflare_workers",
-	// 	"cloudflare_teams",
 }
 
 //go:embed schema.json
@@ -60,7 +52,6 @@ func GetProvider() *tjconfig.Provider {
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
 		tjconfig.WithDefaultResourceFn(defaultResourceFn),
-		// tjconfig.WithIncludeList(includeList),
 		tjconfig.WithSkipList(skipList),
 	)
 
