@@ -31,13 +31,16 @@ import (
 )
 
 const (
-	keyUsername = "username"
-	keyPassword = "password"
-	keyHost     = "host"
+	keyEmail    = "email"
+	keyApiKey   = "api_key"
+	keyApiToken = "api_token"
+	keyApiHost  = "api_hostname"
+	keyApiPath  = "api_base_path"
 
 	// Cloudflare credentials environment variable names
-	envUsername = "HASHICUPS_USERNAME"
-	envPassword = "HASHICUPS_PASSWORD"
+	envEmail = "CLOUDFLARE_EMAIL"
+	envToken = "CLOUDFLARE_API_KEY"
+	envKey   = "CLOUDFLARE_API_TOKEN"
 )
 
 const (
@@ -88,12 +91,15 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 
 		// set provider configuration
 		ps.Configuration = map[string]interface{}{
-			"host": cloudflareCreds[keyHost],
+			"api_hostname":  cloudflareCreds[keyApiHost],
+			"api_base_path": cloudflareCreds[keyApiPath],
 		}
+
 		// set environment variables for sensitive provider configuration
 		ps.Env = []string{
-			fmt.Sprintf(fmtEnvVar, envUsername, cloudflareCreds[keyUsername]),
-			fmt.Sprintf(fmtEnvVar, envPassword, cloudflareCreds[keyPassword]),
+			fmt.Sprintf(fmtEnvVar, envEmail, cloudflareCreds[keyEmail]),
+			fmt.Sprintf(fmtEnvVar, envKey, cloudflareCreds[keyApiKey]),
+			fmt.Sprintf(fmtEnvVar, envToken, cloudflareCreds[keyApiToken]),
 		}
 		return ps, nil
 	}
