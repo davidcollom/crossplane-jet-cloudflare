@@ -3,7 +3,7 @@ module github.com/davidcollom/crossplane-jet-cloudflare
 go 1.17
 
 require (
-	github.com/crossplane/crossplane-runtime v0.15.1-0.20220106140106-428b7c390375
+	github.com/crossplane/crossplane-runtime v0.16.1
 	github.com/crossplane/crossplane-tools v0.0.0-20210916125540-071de511ae8e
 	github.com/crossplane/terrajet v0.4.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
@@ -39,10 +39,10 @@ require (
 	github.com/google/gofuzz v1.1.0 // indirect
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/googleapis/gnostic v0.5.5 // indirect
-	github.com/hashicorp/errwrap v1.0.0 // indirect
+	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
-	github.com/hashicorp/go-multierror v1.0.0 // indirect
-	github.com/hashicorp/go-uuid v1.0.1 // indirect
+	github.com/hashicorp/go-multierror v1.1.1 // indirect
+	github.com/hashicorp/go-uuid v1.0.2 // indirect
 	github.com/hashicorp/go-version v1.3.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.8.2 // indirect
 	github.com/hashicorp/terraform-json v0.13.0 // indirect
@@ -57,7 +57,7 @@ require (
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-testing-interface v1.0.4 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
-	github.com/mitchellh/mapstructure v1.4.1 // indirect
+	github.com/mitchellh/mapstructure v1.4.2 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
@@ -71,7 +71,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/zclconf/go-cty v1.9.1 // indirect
-	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.7.0 // indirect
 	go.uber.org/zap v1.19.1 // indirect
 	golang.org/x/mod v0.4.2 // indirect
